@@ -1,0 +1,17 @@
+{
+  "$schema": "https://dprint.dev/schemas/v0.json",
+  "markdown": {
+    "lineWidth": 100,
+    "textWrap": "always",
+    "newLineKind": "lf"
+  },
+  "markup": {
+    "printWidth": 100,
+    "indentWidth": 2,
+    "lineBreak": "lf"
+  },
+  "plugins": [
+    "https://plugins.dprint.dev/markdown-0.22.1.wasm",
+    "https://plugins.dprint.dev/g-plane/markup_fmt-v0.27.3.wasm"
+  ]
+}

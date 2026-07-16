@@ -1,0 +1,16 @@
+{
+  "language_servers": [
+    "!biome",
+    "!eslint",
+    "..."
+  ],
+  "languages": {
+    "HTML": {
+      "formatter": {
+        "language_server": {
+          "name": "dprint"
+        }
+      }
+    }
+  }
+}

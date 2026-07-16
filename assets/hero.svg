@@ -1,0 +1,471 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1200 400"
+  width="1200"
+  height="400"
+>
+  <style>:root {
+      --width: 1200;
+      --height: 400;
+
+      --background-color: white;
+      --text-color: #454545;
+      --cursor-color: #555555;
+      --accent-1: #ff0066;
+      --accent-2: #0077ff;
+      --accent-3: #ff8800;
+      --accent-4: #6200ff;
+      --accent-5: #22cc22;
+
+      --animation-base-duration-seconds: 1s;
+      --background-animation-duration: var(--animation-base-duration-seconds);
+    }
+
+    .background {
+      fill: var(--background-color);
+
+      width: var(--width);
+      height: var(--height);
+
+      transform: scaleY(0);
+      transform-origin: center;
+
+      animation:
+        background
+        var(--background-animation-duration)
+        ease-in-out
+        forwards;
+    }
+
+    /* Background wait for dramatic effect, then expand to fill the rect. */
+    @keyframes background {
+      0% { transform: scale(0); }
+      60% { transform: scaleY(0); }
+      100% { transform: scaleY(1); }
+    }
+
+    .rhs-decoration {
+      opacity: 0;
+      translate: 97.5% 15%;
+      animation:
+        _fade-in
+        var(--animation-base-duration-seconds)
+        ease-in-out
+        forwards;
+    }
+
+    .rhs-decoration path {
+      --i: 0;
+
+      scale: 3;
+      fill: transparent;
+      opacity: 0;
+      stroke: var(--text-color);
+      stroke-width: 0.5px;
+
+      animation:
+        _rotate calc(var(--animation-base-duration-seconds) * 8) linear 0s infinite forwards,
+        _fade-in
+        var(--animation-base-duration-seconds)
+        ease-in-out
+        calc(
+          var(--background-animation-duration) * 0.65
+          + var(--animation-base-duration-seconds) * var(--i) * 0.35
+        )
+        1
+        forwards;
+    }
+
+    .rhs-decoration path._reverse-animation {
+      animation-direction: reverse, normal !important;
+    }
+
+    .name__underlay__background {
+      fill: var(--accent-5);
+      x: 0;
+      y: 0;
+      width: var(--width);
+      height: var(--height);
+    }
+
+    .name__underlay__blob path {
+      scale: var(--scale);
+      fill: var(--fill-color);
+      animation:
+        _rotate
+       calc(var(--animation-base-duration-seconds) * 8)
+       linear
+       infinite
+       forwards;
+    }
+
+    .name__underlay__blob--1 {
+      --scale: 2;
+      --fill-color: var(--accent-1);
+      translate: 62% 60%;
+    }
+
+    .name__underlay__blob--2 {
+      --scale: 4;
+      --fill-color: var(--accent-2);
+      translate: 69% -14%;
+    }
+
+    .name__underlay__blob--3 {
+      --scale: 5;
+      --fill-color: var(--accent-3);
+      translate: 14% 85%;
+    }
+
+    .name__underlay__blob--4 {
+      --scale: 4;
+      --fill-color: var(--accent-4);
+      translate: 18% 2%;
+    }
+
+    .name__hero {
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+
+    .name__hero__text {
+      opacity: 0;
+      fill: var(--text-color);
+      animation:
+        name__hero__text
+        calc(var(--animation-base-duration-seconds) * 0.35)
+        step-end
+        forwards;
+    }
+
+    @keyframes name__hero__text {
+      20% { opacity: 0.5; }
+      40% { opacity: 0; }
+      60% { opacity: 0.9; }
+      80% { opacity: 0; }
+      100% { opacity: 1; fill: url(#name__underlay); }
+    }
+
+    .name__hero__cursor {
+      opacity: 0;
+      fill: var(--cursor-color);
+      font-family: monospace;
+      animation-delay:
+        calc(var(--animation-base-duration-seconds) * 0.35 + var(--background-animation-duration))
+        !important;
+    }
+
+    .fade-up {
+      --amount: 60px;
+      opacity: 0;
+      transform: translateY(var(--amount));
+      animation: fade-up 0.4s cubic-bezier(0.25, 1, 0.5, 1) 0.6s 1 forwards;
+    }
+
+    .fade-down {
+      --amount: -60px;
+      opacity: 0;
+      transform: translateY(var(--amount));
+      animation: fade-down 0.4s cubic-bezier(0.25, 1, 0.5, 1) 0.6s 1 forwards;
+    }
+
+    .fade-right {
+      --amount: 60px;
+      opacity: 0;
+      transform: translateX(var(--amount));
+      animation: fade-right 0.4s cubic-bezier(0.25, 1, 0.5, 1) 0.6s 1 forwards;
+    }
+
+    .small {
+      --amount: 20px;
+    }
+
+    .fade-down.small {
+      --amount: -20px;
+    }
+
+    .fade-scale {
+      transform: scaleX(0);
+      transform-origin: 54px 0;
+      animation: fade-scale 0.4s cubic-bezier(0.25, 1, 0.5, 1) 0.6s 1 forwards;
+    }
+
+    .d-05 {
+      animation-delay: 0.65s;
+    }
+
+    .d-1 {
+      animation-delay: 0.7s;
+    }
+
+    .d-15 {
+      animation-delay: 0.75s;
+    }
+
+    .d-2 {
+      animation-delay: 0.8s;
+    }
+
+    .d-25 {
+      animation-delay: 0.85s;
+    }
+
+    .d-3 {
+      animation-delay: 0.9s;
+    }
+
+    .d-35 {
+      animation-delay: 0.95s;
+    }
+
+    .d-4 {
+      animation-delay: 1s;
+    }
+
+    .d-45 {
+      animation-delay: 1.05s;
+    }
+
+    .d-5 {
+      animation-delay: 1.1s;
+    }
+
+    .d-55 {
+      animation-delay: 1.15s;
+    }
+
+    .d-6 {
+      animation-delay: 1.2s;
+    }
+
+    .d-6 {
+      animation-delay: 1.25s;
+    }
+
+    .d-7 {
+      animation-delay: 1.3s;
+    }
+
+    @keyframes fade-up {
+      0% {
+        opacity: 0;
+        transform: translateY(var(--amount));
+      }
+
+      10% {
+        transform: translateY(var(--amount));
+      }
+
+      30% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fade-down {
+      0% {
+        opacity: 0;
+        transform: translateY(var(--amount));
+      }
+
+      10% {
+        transform: translateY(var(--amount));
+      }
+
+      30% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fade-right {
+      0% {
+        opacity: 0;
+        transform: translateX(var(--amount));
+      }
+
+      10% {
+        transform: translateX(var(--amount));
+      }
+
+      30% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fade-scale {
+      0% {
+        transform: scaleX(0);
+      }
+
+      100% {
+        transform: scaleX(1);
+      }
+    }
+
+    ._reverse-animation {
+      animation-direction: reverse !important;
+    }
+
+    ._fade-up {
+      --offset: calc(var(--height) * 0.35px);
+
+      opacity: 0;
+      transform: translateY(var(--offset));
+
+      animation:
+        _fade-up
+        calc(var(--animation-base-duration-seconds) * 0.35)
+        cubic-bezier(0.25, 1, 0.5, 1)
+        forwards;
+    }
+
+    ._rotate {
+      transform-origin: center center;
+      animation:
+        _rotate
+       calc(var(--animation-base-duration-seconds) * 8)
+       linear
+       infinite
+       forwards;
+    }
+
+    ._delay--vague {
+      --delay-for-steps: 0;
+      animation-delay: calc(
+          var(--background-animation-duration) * 0.65
+          + var(--animation-base-duration-seconds) * 0.35 * var(--delay-for-steps)
+        ) !important;
+    }
+
+    ._delay--clear {
+      --delay-for-steps: 0;
+      animation-delay: calc(
+          var(--background-animation-duration)
+          + var(--animation-base-duration-seconds) * 0.35 * var(--delay-for-steps)
+        ) !important;
+    }
+
+    ._blink {
+      animation:
+        _blink
+        calc(var(--animation-base-duration-seconds) * 0.8)
+        step-end
+        infinite
+        forwards;
+    }
+
+    @keyframes _blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    @keyframes _rotate {
+      0% { rotate: 0deg; }
+      100% { rotate: 360deg; }
+    }
+
+    @keyframes _fade-in {
+      0% { opacity: 0; }
+      35% { opacity: 1; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes _fade-up {
+      0% {
+        opacity: 0;
+        transform: translateY(--offset);
+      }
+      18% { transform: translateY(--offset); }
+      35% { opacity: 1; }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }</style>
+
+  <rect class="background" />
+
+  <g class="rhs-decoration _delay--vague">
+    <path
+      style="--i: 1;"
+      d="M45.2,-35.1C56.6,-21.8,62.3,-3.2,60.4,17.3C58.6,37.8,49.2,60.2,32.8,68.1C16.4,76,-7,69.4,-29.8,59.4C-52.5,49.3,-74.8,35.7,-80.3,16.8C-85.9,-2.1,-74.7,-26.4,-58.6,-40.8C-42.4,-55.2,-21.2,-59.7,-2.1,-58C16.9,-56.3,33.9,-48.4,45.2,-35.1Z"
+    />
+    <path
+      class="_reverse-animation"
+      style="--i: 2;"
+      d="M64.2,-47.9C78.1,-33.9,80.6,-7.4,74.2,15.5C67.8,38.5,52.6,58,32.8,67C13.1,76.1,-11.1,74.7,-33.5,65.5C-56,56.3,-76.7,39.2,-80.5,19.3C-84.3,-0.6,-71.2,-23.5,-55,-38C-38.7,-52.6,-19.4,-58.8,2.9,-61.1C25.2,-63.4,50.4,-61.8,64.2,-47.9Z"
+    />
+    <path
+      style="--i: 3;"
+      d="M62.6,-50C78.1,-30.5,85.5,-4.7,80.5,19C75.6,42.6,58.4,64,35.9,75.1C13.3,86.2,-14.5,87,-30.1,74.7C-45.6,62.5,-49,37.2,-53.7,13.3C-58.4,-10.7,-64.3,-33.3,-55.5,-51.3C-46.8,-69.2,-23.4,-82.5,0.1,-82.6C23.6,-82.6,47.1,-69.5,62.6,-50Z"
+    />
+    <path
+      class="_reverse-animation"
+      style="--i: 4;"
+      d="M53.5,-43.7C62.2,-31.6,57.4,-9.8,52.8,12.8C48.3,35.5,44,58.9,29.5,68.7C15.1,78.5,-9.5,74.6,-28.7,63.8C-47.8,52.9,-61.6,35,-63.9,16.9C-66.2,-1.3,-57.2,-19.8,-44.6,-32.8C-32,-45.7,-16,-53.1,3.2,-55.6C22.4,-58.2,44.7,-55.8,53.5,-43.7Z"
+    />
+    <path
+      style="--i: 5;"
+      d="M51.3,-42.8C64,-24.9,70.3,-3.7,66.1,15.3C62,34.3,47.3,51,30.6,56.2C13.9,61.4,-4.8,55.1,-25.3,47.3C-45.8,39.4,-68.1,30,-75.9,12.5C-83.7,-5,-77.1,-30.6,-62,-49C-46.9,-67.4,-23.5,-78.7,-2.1,-77C19.2,-75.3,38.5,-60.7,51.3,-42.8Z"
+    />
+    <path
+      style="--i: 6;"
+      class="_reverse-animation"
+      d="M51.7,-72.3C64.9,-61.5,72.1,-43.6,74.1,-26.7C76,-9.7,72.7,6.4,66.3,20.1C59.9,33.8,50.4,45,38.8,54.3C27.2,63.6,13.6,71.1,-0.1,71.3C-13.9,71.4,-27.7,64.3,-42.1,55.9C-56.6,47.5,-71.6,37.8,-78.5,23.8C-85.4,9.8,-84.2,-8.6,-77.3,-23.7C-70.5,-38.8,-57.9,-50.7,-44.1,-61.2C-30.3,-71.8,-15.1,-81.1,2,-83.9C19.2,-86.7,38.5,-83.1,51.7,-72.3Z"
+    />
+    <path
+      style="--i: 7;"
+      d="M46.5,-66.6C58.4,-55.4,64.9,-39.3,71.9,-22.3C78.9,-5.3,86.4,12.6,83.1,28.2C79.7,43.8,65.4,57.1,49.8,64.2C34.1,71.2,17,72,0.6,71.2C-15.9,70.5,-31.9,68.2,-42.4,59.4C-52.8,50.7,-57.8,35.5,-63.1,20.3C-68.4,5,-74,-10.5,-72.8,-26.6C-71.6,-42.7,-63.5,-59.4,-50.2,-70.2C-36.9,-80.9,-18.5,-85.6,-0.6,-84.8C17.3,-84,34.6,-77.8,46.5,-66.6Z"
+    />
+  </g>
+
+  <g id="name" class="_fade-up _delay--clear">
+    <defs>
+      <pattern id="name__underlay" width="100%" height="100%" patternUnits="userSpaceOnUse">
+        <rect class="name__underlay__background" />
+        <g class="name__underlay__blob name__underlay__blob--1">
+          <path d="M53.2,-73.5C68,-62.5,78.4,-45.7,83.7,-27.6C89,-9.6,89.1,9.7,83.3,26.9C77.5,44.1,65.8,59.3,50.9,68.6C36.1,77.9,18,81.4,1.1,79.8C-15.8,78.3,-31.6,71.7,-46,62.3C-60.4,52.8,-73.5,40.5,-79.6,25C-85.8,9.6,-85.1,-8.9,-77.8,-23.4C-70.5,-38,-56.7,-48.5,-42.7,-59.8C-28.6,-71.1,-14.3,-83.2,2.4,-86.5C19.2,-89.9,38.4,-84.6,53.2,-73.5Z" />
+        </g>
+        <g class="name__underlay__blob name__underlay__blob--2">
+          <path d="M54.2,-72.6C70,-63.1,82.5,-47,85,-29.8C87.6,-12.7,80.2,5.5,71.1,19.8C61.9,34.2,51,44.6,38.8,52.6C26.7,60.5,13.4,65.9,0.1,65.7C-13.1,65.5,-26.1,59.7,-38.5,51.9C-50.8,44,-62.4,34,-69.5,20.6C-76.7,7.1,-79.4,-9.8,-75.9,-25.9C-72.4,-42,-62.6,-57.4,-48.9,-67.6C-35.2,-77.8,-17.6,-82.9,0.8,-84C19.2,-85,38.4,-82.1,54.2,-72.6Z" />
+        </g>
+        <g class="name__underlay__blob name__underlay__blob--3">
+          <path d="M45.5,-64.7C58.1,-53.6,66.6,-39,73.8,-22.6C81,-6.2,86.9,11.9,80.6,24.6C74.3,37.2,55.8,44.3,40.3,48.4C24.9,52.6,12.4,53.8,-3,57.9C-18.5,62,-36.9,69.1,-50.2,64.3C-63.5,59.5,-71.7,42.7,-71.7,27C-71.7,11.3,-63.6,-3.4,-59,-19.7C-54.4,-36,-53.4,-54,-44.1,-66.2C-34.9,-78.4,-17.4,-84.8,-0.5,-84.2C16.5,-83.5,33,-75.8,45.5,-64.7Z" />
+        </g>
+        <g class="name__underlay__blob name__underlay__blob--4">
+          <path d="M51.2,-66.4C64.9,-60.6,73.5,-43.6,79.3,-25.7C85.2,-7.9,88.3,10.9,83.9,28.1C79.5,45.3,67.5,60.8,52.2,70.4C37,80.1,18.5,83.8,4.1,78.2C-10.4,72.6,-20.7,57.7,-31.2,46.5C-41.6,35.3,-52.1,27.8,-60.6,16.2C-69.2,4.6,-75.8,-11.1,-71.7,-23.2C-67.7,-35.4,-53,-44,-39.3,-49.8C-25.5,-55.6,-12.8,-58.4,3,-62.6C18.8,-66.7,37.6,-72.2,51.2,-66.4Z" />
+        </g>
+      </pattern>
+    </defs>
+
+    <text
+      class="name__hero"
+      x="50%"
+      y="50%"
+      font-size="125"
+      font-weight="bold"
+      font-family="'Century Gothic', 'Futura', sans-serif"
+    >
+      <tspan class="name__hero__text _delay--clear">Fusora</tspan>
+      <tspan
+        class="_blink name__hero__cursor"
+        dx="-0.25em"
+        dy="-0.15em"
+      >_</tspan>
+    </text>
+  </g>
+</svg>
