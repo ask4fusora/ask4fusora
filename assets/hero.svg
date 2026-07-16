@@ -8,7 +8,7 @@
       --width: 1200px;
       --height: 400px;
 
-      --background-color: #F8F9FA;
+      --background-color: #FBFBFD;
       --text-color: #454545;
       --cursor-color: #555555;
       --accent-1: #ff0066;
