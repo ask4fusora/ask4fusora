@@ -5,8 +5,8 @@
   height="400"
 >
   <style>:root {
-      --width: 1200;
-      --height: 400;
+      --width: 1200px;
+      --height: 400px;
 
       --background-color: #F8F9FA;
       --text-color: #454545;
